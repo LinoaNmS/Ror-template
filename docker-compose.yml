@@ -1,0 +1,30 @@
+version: "3.7"
+services:
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: ${PG_USER}
+      POSTGRES_PASSWORD: ${PG_PASSWORD}
+      POSTGRES_DB: ${PG_DATABASE}
+    ports:
+      - ${PG_PORT}:5434
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - PROJECT_NAME=${PROJECT_NAME}
+        - PG_DATABASE=${PG_DATABASE}
+        - PG_USER=${PG_USER}
+        - PG_PASSWORD=${PG_PASSWORD}
+        - PG_PORT=${PG_PORT}
+        - PG_HOST=${PG_HOST}
+        - LOCAL_USER=${USER}
+        - PROJECT_PORT=${PROJECT_PORT}
+        - BUILD_APP_OPTIONS=${BUILD_APP_OPTIONS}
+    container_name: ${PROJECT_NAME}
+    user: ${USER}
+    ports:
+      - ${PROJECT_PORT}:${PROJECT_PORT}
+    volumes:
+      - ./app:/opt/${PROJECT_NAME}

@@ -1,0 +1,4 @@
+app/*
+
+!app/.env
+!app/entrypoint.sh

@@ -1,10 +1,7 @@
 # RAYLS-GENERATOR
 
-This project is a generator of laravel project using docker & docker-compose.
+This project is a generator of ror project using docker & docker-compose.
 
-Ruby Version : `slim-bullseye`
-
-Node Version : `16.x` (default)
 
 ## Requirements
 
@@ -18,9 +15,6 @@ Open `.env` file and modify variables value :
 ### New project configuration
 `BUILD_APP_OPTIONS` : Options to pass to `rails new` command (default: `--skip-bundle`) refer to [rails new options_helper](docs/rails_new_options_helper.md)
 
-`NODE_ENABLED`: If you want to use nodejs (default: `true`)
-
-`NODE_VERSION`: The version of nodejs (default: `16`) (`NODE_ENABLED` must be `true`)
 ### Project configuration
 `PROJECT_NAME`: Is the name of project (Update container_name, directory of project in container)
 
